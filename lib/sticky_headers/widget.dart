@@ -36,6 +36,7 @@ class StickyHeader extends MultiChildRenderObjectWidget {
     this.overlapHeaders = false,
     this.controller,
     this.callback,
+    this.toBottom = false,
   }) : super(
           key: key,
           // Note: The order of the children must be preserved for the RenderObject.
@@ -47,6 +48,8 @@ class StickyHeader extends MultiChildRenderObjectWidget {
 
   /// Content to be shown below the header.
   final Widget content;
+
+  final bool toBottom;
 
   /// If true, the header will overlap the Content.
   final bool overlapHeaders;
@@ -65,6 +68,7 @@ class StickyHeader extends MultiChildRenderObjectWidget {
       scrollPosition: scrollPosition,
       callback: callback,
       overlapHeaders: overlapHeaders,
+      toBottom: toBottom,
     );
   }
 
@@ -74,7 +78,8 @@ class StickyHeader extends MultiChildRenderObjectWidget {
     renderObject
       ..scrollPosition = scrollPosition
       ..callback = callback
-      ..overlapHeaders = overlapHeaders;
+      ..overlapHeaders = overlapHeaders
+      ..toBottom = toBottom;
   }
 }
 
